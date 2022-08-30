@@ -1,5 +1,5 @@
 # create a Teacher class
-class Teacher 
+class Teacher < person
      #initialize a class Teacher
      def initialize(name="Unknown", age, parent_permission="true", specialization)
         super(name, age, parent_permission)
