@@ -10,4 +10,12 @@ class person
         @name = name 
         @age = age 
         @parent_permission = parent
+    end
+
+    #private method is_of_age?
+    private
+    def is_of_age?
+        @age >= 18
+    end
+
 end
