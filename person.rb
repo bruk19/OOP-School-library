@@ -18,4 +18,10 @@ class person
         @age >= 18
     end
 
+    #public method can_use_service?
+    public
+    def can_use_serivce?
+        is_of_age? || @parent_permission
+    end
+
 end
