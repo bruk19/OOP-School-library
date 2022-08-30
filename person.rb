@@ -1,6 +1,6 @@
 # create a person class 
 
-class person
+class Person
   #initialize a class person
   attr_reader :id
   attr_accessor :name, :age
