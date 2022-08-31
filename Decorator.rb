@@ -7,4 +7,9 @@ class Decorator < Nameable
         @nameable = Nameable
         super()
     end
+    
+    #implement the correct_name method return the result of correct_name
+    def correct_name
+        @nameable = correct_name.new
+    end
 end
