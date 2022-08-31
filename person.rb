@@ -30,7 +30,8 @@ class Person < Nameable
 
   #Method correct_name implemented
   def correct_name
-    return name
+    name
+  end
 
 end
 

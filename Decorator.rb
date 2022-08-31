@@ -10,6 +10,6 @@ class Decorator < Nameable
 
   # implement the correct_name method return the result of correct_name
   def correct_name
-    @nameable = correct_name.new
+    @nameable.correct_name
   end
 end
