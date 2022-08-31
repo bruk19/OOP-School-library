@@ -1,3 +1,6 @@
 # create a Decorator class 
-class Decorator
+require_relative 'Nameable'
+
+class Decorator < Nameable
+    
 end
