@@ -1,6 +1,7 @@
 # create a person class 
+require_relative 'Nameable'
 
-class Person
+class Person < Nameable
   #initialize a class person
   attr_reader :id
   attr_accessor :name, :age
@@ -22,6 +23,11 @@ class Person
   public
   def can_use_serivce?
     is_of_age? || @parent_permission
+  end
+
+  #Method correct_name implemented
+  def correct_name
+    name
   end
 
 end
