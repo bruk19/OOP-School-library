@@ -1,6 +1,7 @@
 # create a person class 
+require_relative 'Nameable'
 
-class Person
+class Person < Nameable
   #initialize a class person
   attr_reader :id
   attr_accessor :name, :age
