@@ -1,3 +1,6 @@
 # create a CapitalizeDecorator class
-class CapitalizeDecorator
+require_relative 'Decorator'
+
+class CapitalizeDecorator < Decorator
+
 end
