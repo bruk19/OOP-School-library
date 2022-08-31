@@ -25,4 +25,8 @@ class Person < Nameable
     is_of_age? || @parent_permission
   end
 
+  #Method correct_name implemented
+  def correct_name
+    return name
+
 end
