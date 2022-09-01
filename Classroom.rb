@@ -5,6 +5,7 @@ class Classroom
 
     def initialize(label)
         @label = label
+        @stunet = []
     end
 
     #Method to add student one by one

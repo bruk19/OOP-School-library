@@ -11,4 +11,10 @@ class Student < Person
     return "¯\(ツ)/¯"
   end
 
+  #aMethod to add studento to classroom
+  def classroom(classroom)
+    @classroom = classroom
+    classroom.student.push(self) unless classroom.student.include?(self)
+  end
+
 end
