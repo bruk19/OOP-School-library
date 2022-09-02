@@ -33,4 +33,16 @@ class App
         books = Book.new(title, author)
         @book.push(books)
     end
+
+    #list all books method
+    def list_books
+        @book.each do |books|
+            puts "Title : #{books.title} | Author : #{books.author}"
+        end
+
+        if @book.empty?
+            puts "No books found in the library"
+            return
+        end
+    end
 end
