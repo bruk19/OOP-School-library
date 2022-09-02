@@ -33,6 +33,6 @@ class Person < Nameable
 
    # Public method add_rental
   def add_rental
-    @rentals.push(rental)
+    @rental.push(rental)
   end
 end
