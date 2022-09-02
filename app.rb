@@ -6,9 +6,9 @@ require_relative 'teacher'
 
 class App
   def initialize
-    @book = []
+    @books = []
     @person = []
-    @rental = []
+    @rentals = []
   end
 
   # create student method
@@ -43,9 +43,9 @@ class App
     choice = gets.chomp
     case choice
     when "1"
-      puts "Student"
+      create_student
     when "2"
-      puts "Teacher"
+      create_teacher
     else
       puts "Please insert a valid number [1 or 2]"
       return
@@ -61,20 +61,20 @@ class App
     author = gets.chomp
 
     # book instance
-    books = Book.new(title, author)
-    @book.push(books)
+    book = Book.new(title, author)
+    @books.push(book)
   end
 
   # list all books method
   def list_books
-    @book.each do |books|
-      puts "Title : #{books.title} | Author : #{books.author}"
-    end
-
-    if @book.empty?
+    if @books.empty?
       puts "No books found in the library"
       return
     end
+
+    @books.each do |book|
+        puts "Title : #{book.title} | Author : #{book.author}"
+      end
   end
 
   def list_people
@@ -84,7 +84,7 @@ class App
       return
     end
     @people.each do |person|
-      puts "[#{person.class}] Name : #{person.name} | ID : #{persom.id} | Age : #{person.age}"
+      puts "[#{person.class}] Name : #{person.name} | ID : #{person.id} | Age : #{person.age}"
     end
   end
 
@@ -97,12 +97,12 @@ class App
     else
       puts "Selecct a book form the following list by number"
       @books.each_with_index do |book, index|
-        puts "#{index} - Book Title : #{book.title} | Author : #{book.author}"
+        puts "#{index}) - Book Title : #{book.title} | Author : #{book.author}"
       end
       rent_book = gets.chomp.to_i
       puts "Select a person form the following list by number (not id)"
       @people.each_with_index do |person, index|
-        puts "#{index} - Name : #{person.name} |ID : #{person.id} | Age : #{person.age}"
+        puts "#{index}) - Name : #{person.name} |ID : #{person.id} | Age : #{person.age}"
       end
       rental_person = gets.chomp.to_i
       print "Date (YYYY/MM/DD) : "
