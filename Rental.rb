@@ -1,4 +1,7 @@
 # create a Rental class
+require_relative './book'
+require_relative './person'
+
 class Rental
   attr_reader :book, :person
   attr_accessor :date

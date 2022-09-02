@@ -1,4 +1,6 @@
 # create a Book class
+require_relative 'rental'
+
 class Book
   attr_reader :rental
   attr_accessor :title, :author
@@ -6,6 +8,7 @@ class Book
   def initialize(title, author)
     @title = title
     @author = author
+    @rentals = []
   end
 
   # Method add_rental

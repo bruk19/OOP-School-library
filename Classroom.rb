@@ -1,11 +1,10 @@
 # create a Classroom class
 class Classroom
-  attr_accessor :label
-  attr_reader :student
+  attr_reader :student, :label
 
   def initialize(label)
     @label = label
-    @stunet = []
+    @student = []
   end
 
   # Method to add student one by one

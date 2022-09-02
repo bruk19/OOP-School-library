@@ -68,7 +68,7 @@ class App
   # list all books method
   def list_books
     if @books.empty?
-      puts "No books found in the library"
+      puts "Person created successfully"
       return
     end
 
@@ -117,15 +117,23 @@ class App
 
   # List all rentals method
   def list_rentals
-    puts "Select a person form the following list by ID"
-    @people.each do |person|
-      puts "ID : #{person.id} | Name : #{person.name}"
-    end
-    print "Enter person\'s ID :"
-    person = gets.chomp
-    @rentals.each do |rental|
-      puts "Date : #{rental.date}, Book \"#{rental.book.title}\" by : #{rental.book.author}"
-       if rental.person.id.to_i == person.to_i
+    puts "\n"
+    if @rentals.empty?
+      puts 'No rent is registered in the library'
+    else
+      puts 'Select a person form the following list by ID'
+      @people.each do |person|
+        puts "ID : #{person.id} => #{person.name}"
+      end
+      puts "\n"
+      print "Enter person\'s ID :"
+      person = gets.chomp
+      puts "\n"
+      @rentals.each do |rental|
+        if rental.person.id.to_i == person.to_i
+          puts "Date : #{rental.date}, Book \"#{rental.book.title}\" by : #{rental.book.author}"
+        end
+      end
     end
   end
 end
