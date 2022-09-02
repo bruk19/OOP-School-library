@@ -87,4 +87,31 @@ class App
             puts "[#{person.class}] Name : #{person.name} | ID : #{persom.id} | Age : #{person.age}"
         end
     end
+
+    # Create rental method
+    def create_rental
+        if @books.size.zero?
+            puts "No books in the library"        
+      elsif @people.size.zero?
+            puts "No People registered in the library"        
+      else
+        puts "Selecct a book form the following list by number"
+        @books.each_with_index do |book, index|
+            puts "#{index} - Book Title : #{book.title} | Author : #{book.author}"
+        end   
+        rent_book = gets.chomp.to_i
+        puts "Select a person form the following list by number (not id)"        
+        @people.each_with_index do |person, index|
+            puts "#{index} - Name : #{person.name} |ID : #{person.id} | Age : #{person.age}"
+        end
+        rental_person = gets.chomp.to_i
+        print "Date (YYYY/MM/DD) : "
+        date = gets.chomp.to_s
+
+        # Instantiating a rental object
+        rental_info = Rental.new(date, @books[rent_book], @people[rental_person])
+        @rentals.push(rental_info)
+        puts "Rental created successfully"
+      end
+    end
 end
