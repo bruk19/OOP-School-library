@@ -24,6 +24,33 @@ class Main
         end
         Integer(gets.chomp)
     end
+    
+    #display for selected list
+    selected_option = App.new
+
+    loop do 
+        case options
+        when 1
+            selected_option.list_books
+        when 2
+            puts "List all people"
+        when 3
+            puts "Create a person"
+        when 4
+            selected_option.create_book
+        when 5
+            puts "Create rental"
+        when 6
+            puts "List all rentals for a given person\'s id"
+        when 7
+            puts "Thank you for using this app!"
+            exit
+        else
+            puts "Invalid option."
+            puts "Enter a number between 1 and 7"
+            puts "\n"
+        end
+    end
 end
 
 def main_call
