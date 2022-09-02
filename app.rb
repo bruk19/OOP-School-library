@@ -21,4 +21,16 @@ class App
         end 
         puts "Person created successfully"
     end  
+
+    #create book method
+    def create_book
+        print "Title : "
+        title = gets.chomp
+        print "Author : "
+        author = gets.chomp
+
+        #book instance
+        books = Book.new(title, author)
+        @book.push(books)
+    end
 end
