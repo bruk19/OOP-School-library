@@ -1,4 +1,7 @@
 # create a App class
+require_relative 'person'
+require_relative 'book'
+
 class App
     def initialize
         @book = []
@@ -43,6 +46,17 @@ class App
         if @book.empty?
             puts "No books found in the library"
             return
+        end
+    end
+    
+    def list_people
+        if @people.empty?
+            puts "No person is registered in the library"
+            puts "\n"
+            return
+        end
+        @people.each do |person|
+            puts "[#{person.class}] Name : #{person.name} | ID : #{persom.id} | Age : #{person.age}"
         end
     end
 end
