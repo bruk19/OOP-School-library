@@ -1,12 +1,40 @@
 # create a App class
 require_relative 'person'
 require_relative 'book'
+require_relative 'student'
+require_relative 'teacher'
 
 class App
     def initialize
         @book = []
         @person = []
         @rental = []
+    end
+
+    # create student method
+    def create_student
+        print "Name : "
+        name = gets.chomp
+        print "Age : "
+        age = gets.chomp
+
+        student = Student.new(age, nil, name)
+        @people.push(student)
+
+        puts "New student created successfully"
+    end
+
+    # create teacher method
+    def create_teacher
+        print "Name : "
+        name = gets.chomp
+        print "Age : "
+        age = gets.chomp
+        print "Specialization : "
+        specialization = gets.chomp
+        teacher = Teacher.new(age, specialization, name)
+        @people.push(teacher)
+        puts "New teacher created successfully"
     end
 
     #Create person method
@@ -48,7 +76,7 @@ class App
             return
         end
     end
-    
+
     def list_people
         if @people.empty?
             puts "No person is registered in the library"
