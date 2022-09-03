@@ -1,5 +1,5 @@
 # create a Rental class
-require_relative './book'
+require_relative './Book'
 require_relative './person'
 
 class Rental

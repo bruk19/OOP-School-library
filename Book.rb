@@ -1,5 +1,5 @@
 # create a Book class
-require_relative 'rental'
+require_relative './rental'
 
 class Book
   attr_reader :rental
