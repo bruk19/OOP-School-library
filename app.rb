@@ -50,6 +50,7 @@ class App
       puts "Please insert a valid number [1 or 2]"
       return
     end
+    puts "\n"
     puts "Person created successfully"
   end
 
@@ -113,6 +114,7 @@ class App
       rental_info = Rental.new(date, @books[rent_book], @person[rental_person])
       @rentals.push(rental_info)
       puts "Rental created successfully"
+      puts "\n"
     end
   end
 
