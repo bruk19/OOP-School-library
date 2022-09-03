@@ -3,15 +3,15 @@ require_relative 'Nameable'
 
 class Person < Nameable
   #initialize a class person
-  attr_reader :id
-  attr_accessor :name, :age, :rental
+  attr_reader :id, :rentals
+  attr_accessor :name, :age, :parent_permission
 
-  def initialize(name="Unknown", age, parent_permission="true", rental)
-    @id = Random.rand(1...1000)
+  def initialize(age, parent_permission= true, name='Unknown')
+    @id = rand(1...1000)
     @name = name 
     @age = age 
-    @parent_permission = parent
-    @rental = []
+    @parent_permission = parent_permission
+    @rentals = []
   end
 
   #private method is_of_age?
@@ -28,12 +28,11 @@ class Person < Nameable
 
   #Method correct_name implemented
   def correct_name
-    name
+    @name
   end
 
    # Public method add_rental
   def add_rental
     @rental.push(rental)
   end
-
 end
