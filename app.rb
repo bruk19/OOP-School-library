@@ -18,8 +18,8 @@ class App
     print "Age : "
     age = gets.chomp
 
-    student = Student.new(age, nil, name)
-    @people.push(student)
+    student = Student.new(age, name)
+    @person.push(student)
 
     puts "New student created successfully"
   end
@@ -32,8 +32,8 @@ class App
     age = gets.chomp
     print "Specialization : "
     specialization = gets.chomp
-    teacher = Teacher.new(age, specialization, name)
-    @people.push(teacher)
+    teacher = Teacher.new(name, age, specialization)
+    @person.push(teacher)
     puts "New teacher created successfully"
   end
 
@@ -59,6 +59,7 @@ class App
     title = gets.chomp
     print "Author : "
     author = gets.chomp
+    puts "Book has been created successfully"
 
     # book instance
     book = Book.new(title, author)
@@ -78,12 +79,12 @@ class App
   end
 
   def list_people
-    if @people.empty?
+    if @person.empty?
       puts "No person is registered in the library"
       puts "\n"
       return
     end
-    @people.each do |person|
+    @person.each do |person|
       puts "[#{person.class}] Name : #{person.name} | ID : #{person.id} | Age : #{person.age}"
     end
   end
@@ -92,7 +93,7 @@ class App
   def create_rental
     if @books.size.zero?
       puts "No books in the library"
-    elsif @people.size.zero?
+    elsif @person.size.zero?
       puts "No People registered in the library"
     else
       puts "Selecct a book form the following list by number"
@@ -101,7 +102,7 @@ class App
       end
       rent_book = gets.chomp.to_i
       puts "Select a person form the following list by number (not id)"
-      @people.each_with_index do |person, index|
+      @person.each_with_index do |person, index|
         puts "#{index}) - Name : #{person.name} |ID : #{person.id} | Age : #{person.age}"
       end
       rental_person = gets.chomp.to_i
@@ -109,7 +110,7 @@ class App
       date = gets.chomp.to_s
 
       # Instantiating a rental object
-      rental_info = Rental.new(date, @books[rent_book], @people[rental_person])
+      rental_info = Rental.new(date, @books[rent_book], @person[rental_person])
       @rentals.push(rental_info)
       puts "Rental created successfully"
     end
@@ -122,7 +123,7 @@ class App
       puts 'No rent is registered in the library'
     else
       puts 'Select a person form the following list by ID'
-      @people.each do |person|
+      @person.each do |person|
         puts "ID : #{person.id} => #{person.name}"
       end
       puts "\n"
