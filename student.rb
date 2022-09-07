@@ -12,7 +12,7 @@ class Student < Person
 
   # add method play_hooky
   def play_hooky
-    return "¯\(ツ)/¯"
+    "¯\(ツ)/¯"
   end
 
   # aMethod to add studento to classroom
