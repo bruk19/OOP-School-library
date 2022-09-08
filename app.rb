@@ -3,13 +3,16 @@ require_relative './person'
 require_relative './book'
 require_relative './student'
 require_relative './teacher'
+require_relative './preserve_books'
 
 class App
   def initialize
-    @books = []
+    @books = load_books
     @person = []
     @rentals = []
   end
+
+  include Preserve_books
 
   # Get user input
   def get_input(text)
