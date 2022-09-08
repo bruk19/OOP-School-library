@@ -11,56 +11,57 @@ class App
     @rentals = []
   end
 
+  # Get user input
+  def get_input(text)
+    print "#{text} : "
+    gets.chomp
+  end
+
   # create student method
   def create_student
-    print "Name : "
-    name = gets.chomp
-    print "Age : "
-    age = gets.chomp
+    name = get_input('Name')
+    age = get_input('Age')
 
     student = Student.new(age, name)
     @person.push(student)
 
-    puts "New student created successfully"
+    puts 'New student created successfully'
   end
 
   # create teacher method
   def create_teacher
-    print "Name : "
-    name = gets.chomp
-    print "Age : "
-    age = gets.chomp
-    print "Specialization : "
-    specialization = gets.chomp
+    name = get_input('Name')
+    age = get_input('Age')
+    specialization = get_input('Specialization')
     teacher = Teacher.new(name, age, specialization)
     @person.push(teacher)
-    puts "New teacher created successfully"
+    puts 'New teacher created successfully'
   end
 
   # Create person method
   def create_person
-    print "Do you want to create a student (1) or a teacher (2)? [Input the number]: "
+    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
     choice = gets.chomp
     case choice
-    when "1"
+    when '1'
       create_student
-    when "2"
+    when '2'
       create_teacher
     else
-      puts "Please insert a valid number [1 or 2]"
+      puts 'Please insert a valid number [1 or 2]'
       return
     end
     puts "\n"
-    puts "Person created successfully"
+    puts 'Person created successfully'
   end
 
   # create book method
   def create_book
-    print "Title : "
+    print 'Title : '
     title = gets.chomp
-    print "Author : "
+    print 'Author : '
     author = gets.chomp
-    puts "Book has been created successfully"
+    puts 'Book has been created successfully'
 
     # book instance
     book = Book.new(title, author)
@@ -70,18 +71,18 @@ class App
   # list all books method
   def list_books
     if @books.empty?
-      puts "Person created successfully"
+      puts 'No book is registered in the library'
       return
     end
 
     @books.each do |book|
-        puts "Title : #{book.title} | Author : #{book.author}"
-      end
+      puts "Title : #{book.title} | Author : #{book.author}"
+    end
   end
 
   def list_people
     if @person.empty?
-      puts "No person is registered in the library"
+      puts 'No person is registered in the library'
       puts "\n"
       return
     end
@@ -93,27 +94,27 @@ class App
   # Create rental method
   def create_rental
     if @books.size.zero?
-      puts "No books in the library"
+      puts 'No books in the library'
     elsif @person.size.zero?
-      puts "No People registered in the library"
+      puts 'No People registered in the library'
     else
-      puts "Selecct a book form the following list by number"
+      puts 'Selecct a book form the following list by number'
       @books.each_with_index do |book, index|
         puts "#{index}) - Book Title : #{book.title} | Author : #{book.author}"
       end
       rent_book = gets.chomp.to_i
-      puts "Select a person form the following list by number (not id)"
+      puts 'Select a person form the following list by number (not id)'
       @person.each_with_index do |person, index|
         puts "#{index}) - Name : #{person.name} |ID : #{person.id} | Age : #{person.age}"
       end
       rental_person = gets.chomp.to_i
-      print "Date (YYYY/MM/DD) : "
+      print 'Date (YYYY/MM/DD) : '
       date = gets.chomp.to_s
 
       # Instantiating a rental object
       rental_info = Rental.new(date, @books[rent_book], @person[rental_person])
       @rentals.push(rental_info)
-      puts "Rental created successfully"
+      puts 'Rental created successfully'
       puts "\n"
     end
   end
