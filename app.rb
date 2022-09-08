@@ -11,8 +11,8 @@ class App
     @rentals = []
   end
 
-   # Get user input
-   def get_input(text)
+  # Get user input
+  def get_input(text)
     print "#{text} : "
     gets.chomp
   end
