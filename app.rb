@@ -11,12 +11,16 @@ class App
     @rentals = []
   end
 
+  # Get user input
+  def get_input(text)
+    print "#{text} : "
+    gets.chomp
+  end
+
   # create student method
   def create_student
-    print 'Name : '
-    name = gets.chomp
-    print 'Age : '
-    age = gets.chomp
+    title = get_input('Title')
+    author = get_input('Author')
 
     student = Student.new(age, name)
     @person.push(student)
@@ -26,12 +30,9 @@ class App
 
   # create teacher method
   def create_teacher
-    print 'Name : '
-    name = gets.chomp
-    print 'Age : '
-    age = gets.chomp
-    print 'Specialization : '
-    specialization = gets.chomp
+    title = get_input('Title')
+    author = get_input('Author')
+    specialization = get_input('Specialization')
     teacher = Teacher.new(name, age, specialization)
     @person.push(teacher)
     puts 'New teacher created successfully'
