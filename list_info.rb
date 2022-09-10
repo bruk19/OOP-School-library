@@ -1,0 +1,2 @@
+class List_infos
+end

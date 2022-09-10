@@ -6,10 +6,14 @@ require_relative './teacher'
 require_relative './preserve_books'
 
 class App
+  attr_accessor :books
   def initialize
+    inti_files
+    @books = []
     @books = load_books
     @person = []
     @rentals = []
+    @list = List_infos.new
   end
 
   include Preserve_books
