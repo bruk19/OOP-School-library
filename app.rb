@@ -64,14 +64,12 @@ class App
 
   # create book method
   def create_book
-    print 'Title : '
-    title = gets.chomp
-    print 'Author : '
-    author = gets.chomp
+    title = get_input('Title')
+    author = get_input('Author')
     puts 'Book has been created successfully'
 
     # book instance
-    book = Book.new(title, author)
+    book = Book.new(title, @books, author)
     @books.push(book)
   end
 

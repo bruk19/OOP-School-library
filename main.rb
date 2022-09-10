@@ -1,5 +1,6 @@
 # create a Main class
 require './app'
+
 class Main
   puts 'Welcome to School Library App!'
   def self.options
@@ -44,6 +45,7 @@ class Main
     when '7'
       app.save_info
       puts "\n"
+      save_data(app.books)
       puts 'Thank you for using this app!'
       puts "\n"
       exit
