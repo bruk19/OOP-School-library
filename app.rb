@@ -1,5 +1,6 @@
 # create a App class
 require_relative './person'
+require 'json'
 require_relative './book'
 require_relative './student'
 require_relative './teacher'
@@ -72,7 +73,7 @@ class App
     puts 'Book has been created successfully'
 
     # book instance
-    book = Book.new(title, @books, author)
+    book = Book.new(title, author)
     @books.push(book)
   end
 
