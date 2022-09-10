@@ -1,4 +1,9 @@
 require 'json'
+require './book'
+
+def save_data(books)
+    save_books(books)
+end
 
 def save_books(books)
     books_store = []
