@@ -1,14 +1,24 @@
-# create a App class
+require 'json'
 require_relative './person'
 require_relative './book'
 require_relative './student'
 require_relative './teacher'
+require_relative 'rental'
+require_relative './store_info'
+require_relative './save_info'
 
 class App
+  include Store_data
+  include Save_info
   def initialize
     @books = []
     @person = []
     @rentals = []
+  end
+
+   # save data to json file
+   def save_data
+    save_info
   end
 
   # Get user input
@@ -57,10 +67,8 @@ class App
 
   # create book method
   def create_book
-    print 'Title : '
-    title = gets.chomp
-    print 'Author : '
-    author = gets.chomp
+    title = get_input('Title')
+    author = get_input('Author')
     puts 'Book has been created successfully'
 
     # book instance
@@ -87,7 +95,7 @@ class App
       return
     end
     @person.each do |person|
-      puts "[#{person.class}] Name : #{person.name} | ID : #{person.id} | Age : #{person.age}"
+      puts "[#{person.class}] ID :#{person.id} Name : #{person.name} | Age : #{person.age}"
     end
   end
 
